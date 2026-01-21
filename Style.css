@@ -1,0 +1,590 @@
+/* --- VARIABLES GLOBALES & RESET --- */
+:root {
+  /* Paleta de colores basada en tu original pero refinada */
+  --color-primary-bg: rgb(161, 119, 89); /* Tu color original */
+  --color-dark-bg: #2c2520; /* Una capa oscura para contraste */
+  --color-card-bg: #3d332c; /* Color para las tarjetas de experiencia */
+  
+  --text-light: #f8f9fa;
+  --text-dark: #212529;
+  --text-muted: #6c757d;
+  --color-accent: #ffd700; /* Un dorado/amarillo para destacar */
+
+  --nav-bg: rgba(255, 255, 255, 0.95);
+  --font-main: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-main);
+  /* El color de fondo base ya no es necesario porque usamos capas */
+}
+
+/* Tipografía mejorada */
+h1, h2, h3, h4 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+p {
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.text-primary-highlight {
+    color: var(--color-primary-bg); /* O usa var(--color-accent) si prefieres que resalte más */
+}
+
+
+/* --- NAVBAR PERSONALIZADO --- */
+.navbar-custom {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  column-gap: 2rem;
+  background-color: var(--nav-bg);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Sombra sutil para que se separe del fondo */
+  backdrop-filter: blur(10px); /* Efecto moderno de cristal */
+}
+
+/* Estilo para los enlaces de navegación en lugar de botones */
+.nav-btn {
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: transparent; /* Quitamos el fondo negro */
+  color: var(--text-dark);       /* Letras oscuras para que se lean */
+  border-radius: 5px;
+  font-weight: 600;              /* Letras un poco más gruesas */
+  transition: all 0.3s ease;
+  border: 1px solid transparent; /* Mantiene el espacio reservado */
+}
+
+/* Tu efecto de hover original (adaptado a enlaces) */
+.navbar-custom:has(.nav-btn:hover) .nav-btn:not(:hover){
+  scale: 0.9;
+  opacity: 0.7;
+  filter: blur(2px);
+}
+
+.nav-btn:hover {
+  transform: scale(1.1);         /* Efecto de crecimiento */
+  background-color: var(--color-primary-bg); /* Fondo Café */
+  color: white;                  /* Letras Blancas */
+  border-radius: 5px;
+}
+
+
+/* --- SISTEMA DE CAPAS (SECTIONS) --- */
+.section-layer {
+    padding: 80px 0; /* Espaciado interno generoso */
+    min-height: 80vh; /* Asegura que ocupen buen espacio en pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+/* Capa Clara (Hero) */
+.layer-light {
+    background-color: #f4f4f4; /* Un gris muy claro en lugar del marrón fuerte para el inicio */
+    color: var(--text-dark);
+    /* Opcional: un degradado sutil usando tu color original */
+     background: linear-gradient(135deg, #f4f4f4 60%, rgba(161, 119, 89, 0.2) 100%);
+}
+
+/* Capa Oscura (Experiencia) */
+.layer-dark {
+    background-color: var(--color-dark-bg);
+    color: var(--text-light);
+    border-top: 5px solid var(--color-primary-bg); /* Borde superior para separar capas */
+}
+
+
+/* --- ESTILOS ESPECÍFICOS HERO SECTION (Corregido) --- */
+.hero-section {
+    /* 1. Usamos 100vh para que ocupe EXACTAMENTE el alto de la pantalla */
+    min-height: 100vh; 
+    
+    /* 2. Activamos el centrado vertical perfecto */
+    display: flex;
+    align-items: center; 
+    
+    /* 3. Eliminamos el relleno que causaba el hueco arriba */
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    
+    /* 4. Truco visual: Como tienes una barra de navegación arriba que ocupa espacio, 
+       podemos "subir" un poco el contenido con un margen negativo para compensar */
+    margin-top: -60px; 
+}
+
+/* Aseguramos que la imagen tenga espacio pero no flote rara */
+.hero-image {
+    max-width: 80%;
+    height: auto;
+    filter: contrast(95%) drop-shadow(5px 5px 15px rgba(0,0,0,0.2));
+    border-radius: 20px;
+    transition: transform 0.3s ease;
+    /* Aseguramos que la imagen no tenga márgenes extraños */
+    display: block;
+    margin: 0 auto;
+}
+
+.hero-image:hover {
+    transform: translateY(-5px);
+}
+
+/* Contenedor para centrar el scroll down al final de la sección hero */
+.scroll-indicator-container {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+}
+
+/* --- BOTONES ELEGANTES (Tus estilos originales, ligeramente ajustados) --- */
+.boton-elegante {
+    padding: 12px 25px; /* Un poco más compactos */
+    border: 2px solid var(--text-dark);
+    background-color: var(--text-dark);
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.4s ease;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Mantenemos tu efecto ::after original */
+.boton-elegante::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 70%);
+    transform: scale(0);
+    transition: transform 0.5s ease;
+}
+.boton-elegante:hover::after { transform: scale(4); }
+
+.boton-elegante:hover {
+    border-color: var(--color-primary-bg);
+    background: var(--color-primary-bg);
+    box-shadow: 0 5px 15px rgba(161, 119, 89, 0.4);
+    transform: translateY(-2px);
+}
+
+
+/* --- NUEVA SECCIÓN DE EXPERIENCIA (TARJETAS) --- */
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.heading-underline {
+    width: 80px;
+    height: 4px;
+    background-color: var(--color-primary-bg);
+    margin: 0 auto 50px auto;
+    border-radius: 2px;
+}
+
+/* Diseño de la Tarjeta de Experiencia */
+.exp-card {
+    background-color: var(--color-card-bg);
+    padding: 30px 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.exp-card:hover {
+    transform: translateY(-10px); /* Efecto de elevación al pasar el mouse */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    border-color: var(--color-primary-bg);
+}
+
+.card-icon {
+    font-size: 3rem;
+    color: var(--color-primary-bg);
+    margin-bottom: 20px;
+}
+
+.exp-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: var(--text-light);
+}
+
+.exp-card p {
+    font-size: 0.95rem;
+    color: #ccc; /* Texto ligeramente más apagado */
+}
+
+/* Lista de tecnologías dentro de las tarjetas */
+.tech-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.tech-list li {
+    display: inline-block;
+    background-color: rgba(161, 119, 89, 0.2);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin: 3px;
+    color: var(--text-light);
+    border: 1px solid var(--color-primary-bg);
+}
+
+
+/* --- TUS ESTILOS DE SCROLL DOWN ORIGINALES (Mantenidos) --- */
+.scrolldown {
+    --color: var(--text-dark); /* Ajustado para que use la variable */
+    --sizeX: 30px;
+    --sizeY: 50px;
+    position: relative;
+    width: var(--sizeX);
+    height: var(--sizeY);
+    /* margin-left: var(sizeX / 2);  <- Esto estaba dando error en algunos navegadores */
+    border: calc(var(--sizeX) / 10) solid var(--color);
+    border-radius: 50px;
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    cursor: pointer;
+  }
+/* (El resto de tu CSS de animación scrolldown se mantiene igual...) */
+.scrolldown::before {
+    content: "";
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    background-color: var(--color);
+    border-radius: 100%;
+    animation: scrolldown-anim 2s infinite;
+    box-sizing: border-box;
+    box-shadow: 0px -5px 3px 1px #2a547066;
+}
+
+@keyframes scrolldown-anim {
+    0% { opacity: 0; height: 6px; }
+    40% { opacity: 1; height: 10px; }
+    80% { transform: translate(0, 20px); height: 10px; opacity: 0; }
+    100% { height: 3px; opacity: 0; }
+}
+
+.chevrons {
+    padding: 6px 0 0 0;
+    margin-left: -3px;
+    margin-top: 48px;
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chevrondown {
+    margin-top: -6px;
+    position: relative;
+    border: solid var(--color);
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+}
+
+.chevrondown:nth-child(odd) { animation: pulse54012 500ms ease infinite alternate; }
+.chevrondown:nth-child(even) { animation: pulse54012 500ms ease infinite alternate 250ms; }
+@keyframes pulse54012 { from { opacity: 0; } to { opacity: 0.5; } }
+
+/* AJUSTES RESPONSIVOS PARA MÓVIL */
+@media (max-width: 768px) {
+    .navbar-custom {
+        column-gap: 0.5rem; /* Menos espacio entre botones en móvil */
+        padding: 0.5rem;
+    }
+    
+    .nav-btn {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+    }
+
+    .hero-section {
+        text-align: center;
+        padding-top: 80px;
+        padding-bottom: 100px; /* Espacio para el scrolldown */
+    }
+    
+    .hero-image {
+        max-width: 60%; /* Imagen más pequeña en móvil */
+        margin-bottom: 30px;
+    }
+    
+    .display-4 {
+        font-size: 2.5rem; /* Título más pequeño en móvil */
+    }
+}
+
+/* --- AGREGAR AL FINAL DE TU CSS --- */
+
+/* Ajustes para Experiencia Interactiva */
+.exp-card {
+    cursor: pointer; /* Indica que es clickeable */
+}
+
+/* Ajustes para los Modales */
+.modal-content {
+    border: 1px solid #444;
+}
+.text-primary-highlight {
+    color: var(--color-primary-bg); /* O el dorado --color-accent */
+    margin-top: 15px;
+    font-weight: 600;
+}
+
+/* Ajustes para Tarjetas de Proyectos */
+.project-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden; /* Para que la imagen no se salga al hacer zoom */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15) !important;
+}
+
+/* Efecto de zoom suave en la imagen del proyecto */
+.project-img-container {
+    overflow: hidden;
+}
+.project-card:hover .card-img-top {
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+}
+
+/* --- ESTILOS SECCIÓN CONTACTO --- */
+
+/* Contenedor para dar efecto de brillo/borde a la foto */
+.profile-img-container {
+    width: 150px;  /* Tamaño de la foto */
+    height: 150px;
+    padding: 5px; /* Espacio para el borde */
+    border-radius: 50%; /* Hace que sea un círculo perfecto */
+    border: 2px solid var(--color-primary-bg); /* Borde color "café/primario" */
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* La imagen en sí misma */
+.contact-profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la foto no se estire ni deforme */
+    border-radius: 50%;
+    filter: brightness(0.9); /* Un poco opaca para que se vea elegante */
+    transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el mouse por la foto */
+.profile-img-container:hover .contact-profile-img {
+    filter: brightness(1.1); /* Se ilumina */
+    transform: scale(1.05); /* Crece un poquito */
+}
+
+/* Pequeño ajuste para la tarjeta de contacto en móviles */
+@media (max-width: 576px) {
+    .display-5 {
+        font-size: 2rem;
+    }
+}
+
+/* --- ESTILOS DEL INTERRUPTOR DARK MODE --- */
+.theme-switch-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switch {
+  display: inline-block;
+  height: 26px; /* Tamaño del botón */
+  position: relative;
+  width: 50px;
+}
+
+.theme-switch input {
+  display: none; /* Ocultamos el checkbox feo por defecto */
+}
+
+.slider {
+  background-color: #ccc;
+  bottom: 0;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+/* La bolita que se mueve */
+.slider:before {
+  background-color: white;
+  bottom: 4px;
+  content: "";
+  height: 18px;
+  left: 4px;
+  position: absolute;
+  transition: .4s;
+  width: 18px;
+  border-radius: 50%;
+  z-index: 2; /* Para que quede encima de los iconos */
+}
+
+/* Color cuando está activado (Oscuro) */
+input:checked + .slider {
+  background-color: var(--color-primary-bg);
+}
+
+/* Movimiento de la bolita */
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Iconos dentro del switch */
+.sun-icon, .moon-icon {
+    font-size: 12px;
+    color: white;
+    z-index: 1;
+}
+
+/* --- LÓGICA DE COLORES DARK MODE --- */
+
+/* Cuando el cuerpo tiene el atributo data-theme="dark" */
+[data-theme="dark"] {
+    /* Cambiamos la variable del navbar para que sea oscuro */
+    --nav-bg: rgba(30, 30, 30, 0.95);
+    --text-dark: #f8f9fa; /* Ahora el texto "oscuro" será blanco */
+}
+
+/* Invertimos las capas claras para que sean oscuras */
+[data-theme="dark"] .layer-light {
+    background: #1a1a1a; /* Gris muy oscuro en lugar de blanco */
+    background-image: none; /* Quitamos el degradado claro si lo había */
+    color: #f8f9fa;
+}
+
+/* Ajustes específicos para textos en modo oscuro */
+[data-theme="dark"] .text-muted {
+    color: #aaa !important; /* Hacemos el texto gris más legible */
+}
+
+[data-theme="dark"] .lead {
+    color: #ddd;
+}
+
+/* Ajuste para las tarjetas de proyectos en modo oscuro */
+[data-theme="dark"] .project-card {
+    background-color: #2c2520; /* Color café oscuro de tus otras tarjetas */
+    color: white;
+    border: 1px solid #444;
+}
+
+[data-theme="dark"] .project-card .card-title {
+    color: var(--color-accent); /* Títulos dorados para resaltar */
+}
+
+/* --- CORRECCIÓN BOTONES EN DARK MODE --- */
+
+/* Cuando está activo el modo oscuro, forzamos el texto a negro */
+[data-theme="dark"] .boton-elegante {
+    color: #1a1a1a !important; /* Texto oscuro */
+    font-weight: 700; /* Un poco más grueso para que se lea bien */
+    border-color: #ffffff; /* Borde blanco para que resalte */
+}
+
+/* Pero cuando pasamos el mouse, el fondo se pone café, así que volvemos el texto a blanco */
+[data-theme="dark"] .boton-elegante:hover {
+    color: #ffffff !important;
+}
+
+/* --- CORRECCIÓN FINAL PROYECTOS EN DARK MODE --- */
+
+/* 1. Títulos de los proyectos a BLANCO (en lugar de amarillo) */
+[data-theme="dark"] .project-card .card-title {
+    color: #ffffff !important;
+}
+
+/* 2. Botones de los proyectos ("Ver Caso", "GitHub") */
+/* En modo oscuro, transformamos los botones negros en blancos para que resalten */
+[data-theme="dark"] .project-card .btn {
+    background-color: #ffffff !important; /* Fondo Blanco brillante */
+    color: #000000 !important; /* Letras Negras para máximo contraste */
+    border: 1px solid #ffffff !important;
+    font-weight: 600;
+}
+
+/* 3. Efecto al pasar el mouse por esos botones en modo oscuro */
+[data-theme="dark"] .project-card .btn:hover {
+    background-color: var(--color-primary-bg) !important; /* Se ponen color café/primario */
+    color: #ffffff !important; /* Letras blancas */
+    border-color: var(--color-primary-bg) !important;
+}
+
+/* --- SOLUCIÓN DEFINITIVA BARRA DE NAVEGACIÓN --- */
+
+/* 1. Estado normal en Modo Oscuro (Fondo Blanco - Letra Negra) */
+[data-theme="dark"] .nav-btn {
+    background-color: #ffffff !important; /* Fondo blanco */
+    color: #000000 !important; /* LETRAS NEGRAS (Forzado) */
+    font-weight: 600; /* Un poco más gorditas para que se lean bien */
+    border: 1px solid #ffffff;
+}
+
+/* 2. Cuando pasas el mouse por encima (Fondo Café - Letra Blanca) */
+[data-theme="dark"] .nav-btn:hover {
+    background-color: var(--color-primary-bg) !important; /* Fondo Café */
+    color: #ffffff !important; /* Letras Blancas */
+    border-color: var(--color-primary-bg) !important;
+    transform: scale(1.1); /* Efecto de crecimiento */
+}
+
+/* --- BARRA DE NAVEGACIÓN MINIMALISTA (DARK MODE) --- */
+
+/* 1. Estado normal: Fondo transparente y letras blancas */
+[data-theme="dark"] .nav-btn {
+    background-color: transparent !important; /* Sin cuadro */
+    color: #ffffff !important; /* Letras Blancas para leerse sobre el fondo oscuro */
+    border: 1px solid transparent; /* Mantiene el espacio sin verse */
+}
+
+/* 2. Estado Hover: Aparece el cuadro de color */
+[data-theme="dark"] .nav-btn:hover {
+    background-color: var(--color-primary-bg) !important; /* ¡Aquí aparece el cuadro! */
+    color: #ffffff !important;
+    border-radius: 5px; /* Bordes redondeados suaves */
+    transform: scale(1.1); /* Efecto pop */
+}

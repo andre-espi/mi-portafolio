@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <title>Portafolio - Andrea Espinoza</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+    <nav class="navbar-custom sticky-top"> 
+        <a href="#home" class="nav-btn">Home</a>
+        <a href="#expertise" class="nav-btn">Expertise</a>
+        <a href="#work" class="nav-btn">Work</a>
+        <a href="#contact" class="nav-btn">Contact</a>
+
+            <div class="theme-switch-wrapper ms-4">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round">
+                    <i class="bi bi-sun-fill sun-icon"></i>
+                    <i class="bi bi-moon-fill moon-icon"></i>
+                </div>
+            </label>
+        </div>
+    </nav> 
+
+    <section id="home" class="section-layer layer-light hero-section">
+        <div class="container">
+            <div class="row align-items-center align-items-lg-center flex-column-reverse flex-lg-row">
+                <div class="col-lg-6 text-center text-lg-start mt-4 mt-lg-0 p-lg-5">
+                    <h1 class="display-4 fw-bold">Hola! Soy <br> <span class="text-primary-highlight">Andrea Espinoza</span></h1>
+                    <h4 class="text-muted mb-4">DESARROLLADOR FULL STACK & APP DEVELOPER</h4>
+                    <p class="lead mb-4">
+                        Poseo sólidos conocimientos en programación, bases de datos y desarrollo de aplicaciones, 
+                        junto con habilidades en análisis y modelamiento de sistemas. Me caracterizo por ser una 
+                        persona proactiva, organizada y orientada a la mejora continua.
+                    </p> 
+                    <div class="d-flex justify-content-center justify-content-lg-start gap-3">
+                        <a href="CV_Andrea_Espinoza_Desarrollador.pdf" download="CV_Andrea_Espinoza_Desarrollador.pdf" class="boton-elegante text-decoration-none">
+                            Descarga CV
+                        </a>
+                        <a href="#contact" class="boton-elegante text-decoration-none"> 
+                            Contacto 
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 text-center">
+                    <img src="img_centro.jpg" alt="Andrea Espinoza" class="hero-image img-fluid">
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator-container">
+            <a href="#expertise" style="text-decoration: none;"> 
+                <div class="scrolldown" style="--color: var(--text-dark)">
+                    <div class="chevrons">
+                        <div class="chevrondown"></div>
+                        <div class="chevrondown"></div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <section id="expertise" class="section-layer layer-dark">
+        <div class="container py-5">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="section-title text-white">Mi Experiencia</h2>
+                    <div class="heading-underline"></div>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="exp-card h-100">
+                        <div class="card-icon">
+                            <i class="bi bi-laptop"></i> </div>
+                        <h3>Desarrollo de Software</h3>
+                        <p>Experiencia en programación orientada a objetos y estructurada. Stack tecnológico:</p>
+                        <ul class="tech-list">
+                            <li>C#, Java, Python, JavaScript</li>
+                            <li>Visual Studio, IntelliJ IDEA</li>
+                            <li>SQL Databases</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="exp-card h-100">
+                        <div class="card-icon">
+                            <i class="bi bi-code-slash"></i>
+                        </div>
+                        <h3>Desarrollo Frontend</h3>
+                        <p>Creación de interfaces web interactivas, funcionales y responsivas.</p>
+                         <ul class="tech-list">
+                            <li>HTML5, CSS3, JS moderno</li>
+                            <li>Diseño UX/UI limpio</li>
+                            <li>Enfoque en usabilidad</li>
+                        </ul>
+                    </div>
+                </div>
+
+                 <div class="col-md-6 col-lg-4 mx-auto">
+                    <div class="exp-card h-100">
+                        <div class="card-icon">
+                             <i class="bi bi-android2"></i>
+                        </div>
+                        <h3>Desarrollo Android</h3>
+                        <p>Desarrollo de aplicaciones móviles nativas desde el diseño hasta la lógica.</p>
+                         <ul class="tech-list">
+                            <li>Java & Kotlin</li>
+                            <li>Android Studio</li>
+                            <li>Implementación de lógica de negocio</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="work" class="section-layer layer-light">
+        <div class="container py-5">
+            <div class="row text-center mb-5">
+                <div class="col-12">
+                    <h2 class="section-title">Mis Proyectos</h2>
+                    <div class="heading-underline"></div>
+                    <p class="text-muted">Selecciona un proyecto para ver el caso de estudio completo</p>
+                </div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card h-100 border-0 shadow-sm">
+                        <div class="project-img-container">
+                            <a href="proyecto-restaurante.html">
+                                <img src="imagencentral.jpg" class="card-img-top" alt="Restaurante App" style="height: 200px; object-fit: cover;">
+                            </a>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Restaurante Siglo XXI</h5>
+                            <p class="card-text text-muted small">Optimización operativa de pedidos y cocina.</p>
+                            <div class="mt-auto">
+                                <a href="proyecto-restaurante.html" class="btn btn-outline-dark w-100 mb-2">Ver </a>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card h-100 border-0 shadow-sm">
+                        <div class="project-img-container">
+                            <a href="proyecto-farmacia.html">
+                                <img src="imagencentral.jpg" class="card-img-top" alt="Backend Farmacia" style="height: 200px; object-fit: cover;">
+                            </a>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">API Gestión Farmacéutica</h5>
+                            <p class="card-text text-muted small">Backend Spring Boot con seguridad y consumo de APIs.</p>
+                            <div class="mt-auto">
+                                <a href="proyecto-farmacia.html" class="btn btn-outline-dark w-100 mb-2">Ver </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card h-100 border-0 shadow-sm">
+                        <div class="project-img-container">
+                            <a href="proyecto-transferencia.html">
+                                <img src="imagencentral.jpg" class="card-img-top" alt="App Transferencia" style="height: 200px; object-fit: cover;">
+                            </a>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Transferencia de Datos</h5>
+                            <p class="card-text text-muted small">Procesamiento masivo de Excel/CSV a Base de Datos.</p>
+                            <div class="mt-auto">
+                                <a href="proyecto-transferencia.html" class="btn btn-outline-dark w-100 mb-2">Ver </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card h-100 border-0 shadow-sm">
+                        <div class="project-img-container">
+                            <a href="proyecto-calculadora.html">
+                                <img src="imagencentral.jpg" class="card-img-top" alt="Calculadora" style="height: 200px; object-fit: cover;">
+                            </a>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Calculadora Python</h5>
+                            <p class="card-text text-muted small">Lógica pura y estructuras de control.</p>
+                            <div class="mt-auto">
+                                <a href="proyecto-calculadora.html" class="btn btn-outline-dark w-100 mb-2">Ver </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card h-100 border-0 shadow-sm">
+                        <div class="project-img-container">
+                            <a href="proyecto-admin.html">
+                                <img src="imagencentral.jpg" class="card-img-top" alt="Admin Recursos" style="height: 200px; object-fit: cover;">
+                            </a>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Monitor de Recursos</h5>
+                            <p class="card-text text-muted small">Dashboard de monitoreo de hardware en C#.</p>
+                            <div class="mt-auto">
+                                <a href="proyecto-admin.html" class="btn btn-outline-dark w-100 mb-2">Ver </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="card project-card h-100 border-0 shadow-sm">
+                        <div class="project-img-container">
+                            <a href="proyecto-data.html">
+                                <img src="img_dashboard_data.jpg" class="card-img-top" alt="Dashboard Data" style="height: 200px; object-fit: cover;">
+                            </a>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title fw-bold">Análisis de Ventas SQL</h5>
+                            <p class="card-text text-muted small">Procesamiento de datos masivos, consultas SQL complejas y visualización de KPIs.</p>
+                            <div class="mt-auto">
+                                <a href="proyecto-data.html" class="btn btn-outline-dark w-100 mb-2">Ver </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="section-layer layer-dark text-center">
+        <div class="container py-5">
+            
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    
+                    <div class="mb-4">
+                        <div class="profile-img-container mx-auto">
+                            <img src="foto_contacto.jpg" alt="Andrea Espinoza" class="contact-profile-img">
+                        </div>
+                    </div>
+
+                    <h2 class="display-5 fw-bold text-white mb-3">¿Hablamos?</h2>
+                    <p class="lead text-white-50 mb-5">
+                        Estoy disponible para nuevas oportunidades laborales y colaboraciones en proyectos de TI. 
+                        Si buscas alguien apasionada por la tecnología, organizada y lista para aportar valor, contáctame.
+                    </p>
+
+                    <div class="card bg-dark border-secondary p-4 shadow-lg mx-auto" style="max-width: 500px;">
+                        <div class="d-flex flex-column gap-3">
+                            
+                            <a href="mailto:andreaceu1@gmail.com" class="btn btn-outline-light btn-lg d-flex align-items-center justify-content-center gap-2">
+                                <i class="bi bi-envelope-fill"></i> Envíame un Correo
+                            </a>
+
+                            <a href="https://www.linkedin.com/in/andrea-carolina-espinoza-uzcategui-ti" target="_blank" class="btn btn-primary btn-lg d-flex align-items-center justify-content-center gap-2 border-0" style="background-color: #0077b5;">
+                                <i class="bi bi-linkedin"></i> Conectar en LinkedIn
+                            </a>
+
+                            <div class="text-white mt-2"> 
+                                <i class="bi bi-geo-alt-fill text-danger"></i> Santiago, Chile (Disponible Presencial/Remoto/Híbrido)
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </div> 
+    <footer class="w-100 bg-black text-white py-4 text-center border-top border-secondary" style="position: relative; width: 100%; left: 0;">
+        <div class="container">
+            <p class="mb-1">&copy; 2025 Andrea Espinoza. Todos los derechos reservados.</p>
+            <p class="small text-white-50 mb-0">Desarrollado con HTML5, CSS3 y Bootstrap 5.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
+
+        // 1. Verificar si el usuario ya tenía una preferencia guardada
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        // 2. Función para cambiar el tema
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark'); // Guardar en memoria
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light'); // Guardar en memoria
+            }    
+        }
+
+        // 3. Escuchar el evento de click
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+
+</body>
+</html>
